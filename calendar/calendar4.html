@@ -1,0 +1,472 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+
+body{
+	background-image:url(images/background2.jpg);
+}
+
+*{
+	margin:0;
+	border:0;
+	padding:0;
+	font-family:"微软雅黑";
+}
+
+a{
+	text-decoration:none;
+}
+
+ul{
+	list-style:none;
+}
+
+.calendar{
+	width:560px;
+	border:1px dotted white;
+	padding:20px;
+	overflow:hidden;
+}
+
+.wraps:after{
+	content:"";
+	width:100px;
+	height:147px;
+	background-image:url(images/arrow.png);
+	position:absolute;
+	background-repeat:no-repeat;
+	top:18px;
+	right:165px;
+}
+
+.title{
+	height:70px;
+	text-align:center;
+	float:left;
+	line-height:70px;
+	color:blue;
+	font-size:40px;
+	padding:0 109px;
+}
+
+.title input{
+	display:inline-block;
+	width:115px;
+	height:50px;
+	text-align:center;
+	font-size:40px;
+	margin:0 5px;
+	background-color:transparent;
+	color:blue;
+
+}
+
+.week{
+	height:30px;
+	border-bottom:1px dotted white;
+}
+
+.dateUL{
+	overflow:hidden;
+}
+
+.week li,.dateUL li{
+	float:left;
+	width:80px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	color:#e462b0;
+}
+
+.dateUL .oldDay{
+	color:#ccc;
+}
+
+.dateUL .toDay{
+	color:white;
+	background-color:blue;
+}
+
+.dateUL .weekend{
+	color:blue;
+}
+
+.preBtn,.nextBtn{
+	display:inline-block;
+	height:70px;
+	width:60px;
+	line-height:70px;
+	text-align:center;
+	color:#e462b0;
+	font-size:20px;
+}
+
+.preBtn{
+	float:left;
+}
+
+.nextBtn{
+	float:right;
+}
+
+.tops{
+	height:70px;
+	width:100%;
+	line-height:40px;
+}
+
+#tit2{
+	width:62%;
+	height:70px;
+}
+
+#part1{
+	display:block;
+}
+
+#part2{
+	display:none;
+}
+
+#btn1{
+	width:150px;
+	height:57px;
+	background-image:url(images/nav-selected-bg.jpg);
+	border-radius:34%;
+	padding:5px;
+	color:white;
+	cursor:pointer;
+	font-family:"微软雅黑";
+	font-size:15px;
+	position:absolute;
+	top:0;
+	right:46px;
+}
+
+.wraps{
+	left:50%;
+	top:40%;
+	transform:translate(-50%,-50%);
+	position:absolute;
+	overflow:hidden;
+	padding:100px;
+}
+
+#arrow{
+	width:110px;
+	height:110px;
+	position:absolute;
+	background-image:url(images/arrow2.png);
+	top:33px;
+	left:350px;
+	color:white;
+	background-repeat:no-repeat;
+	display:none;
+	background-position:bottom left;
+
+}
+
+</style>
+
+
+</head>
+
+<body>
+<div class="wraps">
+    <button id="btn1">设置年月查看日期</button>
+    
+    <div class="calendar clear-fixed" id="part1">
+        <div class="tops">
+            <a href="javascript:;" id="pre" class="preBtn">上月</a>
+            <div class="title" id="tit"></div>
+            <a href="javascript:;" id="next" class="nextBtn">下月</a>
+        </div>
+        <ul class="week">
+            <li>一</li>
+            <li>二</li>
+            <li>三</li>
+            <li>四</li>
+            <li>五</li>
+            <li>六</li>
+            <li>日</li>
+        </ul>
+    
+        <ul id="date_list" class="dateUL">
+            <!--<li class="oldDay">1</li>
+            <li class="oldDay">2</li>
+            <li class="toDay">3</li>
+            <li>4</li>
+            <li>5</li>
+            <li class="weekend">6</li>
+            <li class="weekend">7</li>!-->
+        </ul>
+    </div>
+    
+    
+    <div class="calendar clear-fixed" id="part2">
+        <div class="tops">
+            
+            <div class="title" id="tit2">
+                <input type="text">年
+                <input type="text">月
+            </div>
+    
+        </div>
+        <ul class="week">
+            <li>一</li>
+            <li>二</li>
+            <li>三</li>
+            <li>四</li>
+            <li>五</li>
+            <li>六</li>
+            <li>日</li>
+        </ul>
+    
+        <ul id="date_list2" class="dateUL">
+            <!--<li class="oldDay">1</li>
+            <li class="oldDay">2</li>
+            <li class="toDay">3</li>
+            <li>4</li>
+            <li>5</li>
+            <li class="weekend">6</li>
+            <li class="weekend">7</li>!-->
+        </ul>
+    </div>
+    <div id="arrow"><span>点击数字</br>设置日期</span></div>
+</div>
+
+
+
+<script>
+
+var oPre=document.getElementById("pre");
+var oNext=document.getElementById("next");
+var num=0;
+var showDate=document.getElementById("date_list");
+var aLi=showDate.getElementsByTagName("li");
+var t=document.getElementById("tit");
+
+var t2=document.getElementById("tit2");
+var tInput1=t2.getElementsByTagName("input")[0];
+var tInput2=t2.getElementsByTagName("input")[1];
+var showDate2=document.getElementById("date_list2");
+
+var oDate=new Date();
+var today=oDate.getDate();
+var toYear=oDate.getYear();
+var toMonth=oDate.getMonth();
+
+var oPart1=document.getElementById("part1");
+var oPart2=document.getElementById("part2");
+
+var oBtn=document.getElementById("btn1");
+var onOff=true;
+var oArrow=document.getElementById("arrow");
+
+changeDate(showDate,num);
+changeDate(showDate2,0,toYear+1900,toMonth+1);
+
+oPre.onclick=function(){
+	showDate.innerHTML="";
+	num--;
+	changeDate(showDate,num);
+}
+
+oNext.onclick=function(){
+	showDate.innerHTML="";
+	num++;
+	changeDate(showDate,num);
+}
+
+tInput1.onblur=function(){
+	showDate2.innerHTML="";
+	years=this.value;
+	months=tInput2.value;
+	changeDate(showDate2,0,years,months);
+}
+
+tInput2.onblur=function(){
+	showDate2.innerHTML="";
+	months=this.value;
+	years=tInput1.value;
+	changeDate(showDate2,0,years,months);
+}
+
+oBtn.onclick=function(){
+	
+	if(onOff){
+		oPart1.style.display="none";
+		oPart2.style.display="block";
+		onOff=false;
+		this.innerHTML="上下切换日期";
+		showDate.innerHTML="";
+		num=0;
+		oArrow.style.display="block";
+		changeDate(showDate,num);
+		
+	}else{
+		oPart1.style.display="block";
+		oPart2.style.display="none";
+		onOff=true;
+		this.innerHTML="设置年月查看日期";
+		showDate2.innerHTML="";
+		oArrow.style.display="none";
+		changeDate(showDate2,0,toYear+1900,toMonth+1);
+	}	
+}
+
+
+function changeDate(obj,num,years,months){
+	
+	var oDate=new Date();
+	
+	//今天
+
+	//本月总天数
+	
+	/*if(!for1_year && !for1_month){
+		var thisMonth=oDate.getMonth()+num;
+	}else{
+		oDate.setYear(for1_year);
+		oDate.setMonth(for1_month);
+		var thisMonth=oDate.getMonth()-1+num;
+	}*/
+	
+	if(years){
+		
+		oDate.setYear(years);
+	}
+	
+	if(months){
+		oDate.setMonth(months-1);
+	}
+
+	var thisMonth=oDate.getMonth()+num;
+	oDate.setMonth(thisMonth+1,0);
+	var allday=oDate.getDate();
+	
+	//本月第一天是星期几
+	oDate.setDate(1);
+	var xDate=oDate.getDay();
+	
+	//星期日排在最前且本月第一天为星期日时的情况 即 日 一 二 三 四 五 六,而不是 一 二 三 四 五 六 日,此时前边不需要加空格
+	/*for(var i=1;i<xDate;i++){
+		var oLi=document.createElement("li");
+		showDate.appendChild(oLi);
+	}*/
+	
+	//星期日排在最后且本月第一天为星期日时的情况 即 一 二 三 四 五 六 日  而不是 日 一 二 三 四 五 六,此时前边需要加6个空格
+	if(xDate==0){
+		xDate=7;
+	}
+	
+	for(var i=1;i<xDate;i++){	//此时则可以知道当本月第一天为星期一时,即xDate=1,则不会执行此循环,不加空格
+		var oLi=document.createElement("li");
+		obj.appendChild(oLi);
+	}
+	
+	for(var i=0;i<allday;i++){
+		var oLi=document.createElement("li");
+		oLi.innerHTML=i+1;
+		obj.appendChild(oLi);
+	}
+	
+	var aLi=obj.getElementsByTagName("li");	
+	
+		if(!years && !months){	
+			if(num==0){
+				for(var k=0;k<aLi.length;k++){
+					if(aLi[k].innerHTML<today){
+						aLi[k].className="oldDay";
+					}else if(aLi[k].innerHTML==today){
+						aLi[k].className="toDay";
+					}else if(k%7==6 || k%7==5){
+						aLi[k].className="weekend";
+					}
+				}
+			}else if(num<0){
+				for(var k=0;k<aLi.length;k++){
+					aLi[k].className="oldDay";	
+				}
+			}else{
+				for(var k=0;k<aLi.length;k++){
+					if(k%7==6 || k%7==5){
+						aLi[k].className="weekend";
+					}
+				}
+			}
+		}else{
+			if(years-1900>toYear || years-1900==toYear && months>toMonth+1){
+				for(var k=0;k<aLi.length;k++){
+					if(k%7==6 || k%7==5){
+						aLi[k].className="weekend";
+					}
+				}
+			}else if(years-1900<toYear || years-1900==toYear && months<toMonth+1){
+				for(var k=0;k<aLi.length;k++){
+					aLi[k].className="oldDay";	
+				}
+			}else{
+				for(var k=0;k<aLi.length;k++){
+					if(aLi[k].innerHTML<today){
+						aLi[k].className="oldDay";
+					}else if(aLi[k].innerHTML==today){
+						aLi[k].className="toDay";
+					}else if(k%7==6 || k%7==5){
+						aLi[k].className="weekend";
+					}
+				}
+			}
+		}
+
+	
+	/*way2 直接运用today来做
+	for(var j=1;j<today;j++){	//j相当于日期,当j小于今天的日期时
+		aLi[j].className="oldDay";
+	}
+	aLi[today].className="toDay";	//直接设置当索引等于今天时的className
+	for(var i=today;i<allday;i++){	//i相当于日期,当i大于等于今天日期时
+		var oDate2=new Date();
+		oDate2.setDate(i);			//将日期设置成每一个今天之后的日期
+		var xDate2=oDate2.getDay();//获得设置后的日期是星期几
+		if(xDate2=="6" || xDate2=="0"){		//假如是星期六或星期天
+			aLi[i].className="weekend";
+		}
+	}*/
+	
+	if(!years && !months){
+		if(thisMonth>=0 && thisMonth<12){
+			t.innerHTML=oDate.getFullYear()+"年"+(thisMonth+1)+"月";
+		}else{	
+			t.innerHTML=oDate.getFullYear()+"年"+(oDate.getMonth()+1)+"月";
+		}
+	}else{
+		if(thisMonth>=0 && thisMonth<12){
+			tInput1.value=oDate.getFullYear();
+			tInput2.value=thisMonth+1;
+		}else{
+			tInput1.value=oDate.getFullYear();
+			tInput2.value=oDate.getMonth()+1;
+		}
+	}
+	/*
+		if(thisMonth>=0 && thisMonth<12){
+			tInput1.value=oDate.getFullYear();
+			tInput2.value=thisMonth+1;
+		}else{
+			tInput1.value=oDate.getFullYear();
+			tInput2.value=oDate.getMonth()+1;
+		}
+	*/
+	/*else{
+		tInput1.value=oDate.getFullYear();
+		tInput2.value=thisMonth+1;
+	}*/
+}
+</script>
+</body>
+</html>
