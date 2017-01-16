@@ -1,0 +1,254 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+
+<link href="css/index.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+        $(function () {
+
+            var isLogin = false;
+            $("#gender").attr("gen","Male")
+
+            var clientSocket = io();
+
+//            clientSocket.on("hello", function (data) {
+//                alert("服务器端说：" + data);
+//            });
+
+            clientSocket.on("message", function (data) {
+                var type = data.type;   // 提交消息类型
+                //console.log(data.counts)
+
+                // 根据消息类型，作出相应的处理
+
+                if(type=="100"){
+                    isLogin = true;
+                    intoChatroom(data);
+                }else if(type=="101"){
+                    if(isLogin){
+                        welcomeMsg(data);
+                    }
+                }else if(type=="102"){
+                    if(isLogin){
+                        whenLeave(data);
+                    }
+                }else if(type=="200"){
+                    if(isLogin){
+                        selfMsg(data);
+                    }
+                }else if(type=="201"){
+                    if(isLogin){
+                        chatMsg(data);
+                    }
+                }
+            });
+
+            function scroll(){
+                // 有多远，滚多远
+                $("#presents").scrollTop($("presents").prop("scrollHeight"));
+            }
+
+            // 在聊天窗口显示用户离开聊天室的消息
+            function whenLeave(data){
+
+                var peoLeave = "<div><div class='sys'>[SYSTEM]<span class='name'>" + data.nickname + "</span> has left the chat room!</div></div>";
+                $("#presents").append(peoLeave);
+
+                $("#onlines p").html("people online:"+ data.counts)
+
+                scroll();   // 滚动窗口到最底部
+            }
+
+            function selfMsg(data){
+                // 在聊天界面给出提示信息
+                var selfMsg = "<div class='dif_per'><div class='cons1'><p class='who1'>"+ data.nickname+" says:</p><p>"+ data.content+"</p></div></div>";
+                $("#presents").append(selfMsg);
+
+                scroll();
+
+            }
+
+            // 在聊天窗口显示其他用户的聊天信息
+            function chatMsg(data){
+                // 在聊天界面给出提示信息
+                var welcome = "<div class='dif_per'><div class='cons2'><p class='who2'>"+ data.nickname+" says:</p><p>"+ data.content+"</p></div></div>";
+                $("#presents").append(welcome);
+
+                scroll();
+            }
+
+            // 在聊天窗口显示欢迎新用户的消息
+            function welcomeMsg(data){
+                // 在聊天界面给出提示信息
+                var welcome = "<div><div class='sys'>[SYSTEM]Welcome <span class='name'>" + data.nickname + "</span>!</div></div>";
+                $("#presents").append(welcome);
+                $("#onlines p").html("people online:"+ data.counts)
+                scroll();   // 滚动窗口到最底部
+
+            }
+
+            // 显示聊天界面的函数
+            function intoChatroom(data) {
+                // 隐藏登录界面
+                $("#login").hide();
+
+                // 显示聊天界面
+                $("#chatting").show();
+
+                // 在聊天界面给出提示信息
+                var whenIn = "<div><div class='sys'>[SYSTEM]You are in ! Please be gentle when you are chatting!</div></div>";
+                $("#presents").append(whenIn);
+
+                $("#onlines p").html("people online:"+ data.counts);
+
+            }
+
+            // 响应用户登录事件
+            $("#loginbtn").on("click", function () {
+                var nickname = $("#nickname").val();
+
+                var hdp= $("#selfie img").attr("src");
+
+                var reg = /^\s*|\s*$/g;
+
+                if(!nickname || nickname.replace(reg,'')==""){
+                    alert("Nickname could not be empty");
+                }else if(nickname.length<=2 || nickname.length>10){
+                    alert("The length of your nickname must be more than 2 charas and less than 10 charas!")
+                }else{
+                    var msg = {
+                        type: "101",
+                        nickname: nickname,
+                        headpic:hdp,
+                        gender:$("#gender").attr("gen"),
+                    };
+                    clientSocket.send(msg);
+                }
+            });
+
+            //选头像
+            $("#selfie").on("click",function(){
+
+                $("#selfie_block").show();
+            })
+
+            $("#selfie_block li").on("click",function(){
+                var thisIndex=$(this).index();
+
+                $("#selfie img").attr("src",'images/hd'+(thisIndex+1)+'.png')
+
+                $("#selfie_block").hide();
+            })
+
+            //选性别
+            $("#gender input").on("click",function(){
+                $("#gender input").attr("checked",null);
+                $(this).attr("checked","checked");
+                $("#gender").attr("gen",$(this).val());
+            });
+
+            //發送
+            $("#btn").on("click",function(){
+
+                var content = $.trim($("#contents").val());
+
+                if(!content){
+
+                    alert("Nothing could be sent!")
+                }else {
+                    var message = {
+                        type: "201",
+                        content: content
+                    };
+                    clientSocket.send(message);
+
+                    // 清空输入框
+                    $("#contents").val("");
+                }
+            });
+
+            $("#contents").on("keyup",function(e){
+                // 判断是否按下了回车键
+                if(e.keyCode == 13){
+                    $("#btn").click();
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+<div id="wrapper">
+    <div id="login">
+        <div id="whole_self">
+            <div id="selfie"><img src="images/hd1.png"></div>
+            <ul id="selfie_block">
+                <li><a href="#"><img src="images/hd1.png"></a></li>
+                <li><a href="#"><img src="images/hd2.png"></a></li>
+                <li><a href="#"><img src="images/hd3.png"></a></li>
+                <li><a href="#"><img src="images/hd4.png"></a></li>
+                <li><a href="#"><img src="images/hd5.png"></a></li>
+                <li><a href="#"><img src="images/hd6.png"></a></li>
+                <li><a href="#"><img src="images/hd7.png"></a></li>
+                <li><a href="#"><img src="images/hd8.png"></a></li>
+            </ul>
+        </div>
+        <input id="nickname" placeholder="What's your nickname?" type="text" name="nn">
+        <div id="gender">
+            <form action="" method="get">
+                <input name="gender" type="radio" value="Male" checked="checked" />Male
+                <input name="gender" type="radio" value="Female" />Female
+            </form>
+        </div>
+        <a id="loginbtn" href="#">Log in</a>
+    </div>
+    <div id="chatting">
+        <div id="onlines">
+            <p>people online: 0</p>
+            <div id="box1">
+                <!--<li class="every">
+                    <img src="images/hd1.png"><span>QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ</span><a href="#">[CHAT]</a>
+                </li>-->
+            </div>
+        </div>
+        <div id="chats">
+            <div id="presents">
+                <!--<div class="dif_per">
+                    <div class="cons1">
+                        <p class="who1">QQQ says:</p>
+                        <p>hahahhahahahhahahahhahhahahhahahahhahahahhahhahahhahahahhahahahhahhahahhahahahhahahahhahhahahhahahahhahahahhah</p>
+                    </div>
+                </div>
+                <div class="dif_per">
+                    <div class="cons2">
+                        <p class="who2">QQQ says:</p>
+                        <p>hahahhahahahhahahahhahhahahhahahahhahahahhahhahahhahahahhahahahhahhahahhahahahhahahahhahhahahhahahahhahahahhah</p>
+                    </div>
+                </div>-->
+            </div>
+            <div id="down">
+                <div id="part1">
+                    <input id="contents" type="text" placeholder="Say something..">
+                    <input id="btn" type="submit" value="send">
+                    <input id="btn2" type="submit" value="Private chat">
+                </div>
+                <div id="part2">
+                    <input id="toWhom" type="text" placeholder="To....">
+                    <input id="saySome" type="text" placeholder="Say something..">
+                    <input id="btn3" type="submit" value="send">
+                    <input id="btn4" type="submit" value="Public">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>
