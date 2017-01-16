@@ -1,0 +1,39 @@
+{
+  "totalPages": 30,
+  "currentPage": 1,
+  "dri1": [
+    {
+      "imgsrc":"images/drinks/d1.jpg",
+      "dri_name":"Hot Chocolate"
+    },{
+      "imgsrc":"images/drinks/d2.jpg",
+      "dri_name":"Frozen Lemonade"
+    },{
+      "imgsrc":"images/drinks/d3.jpg",
+      "dri_name":"Hi-C Fruit Punch"
+    },{
+      "imgsrc":"images/drinks/d4.jpg",
+      "dri_name":"Mello Yello"
+    },{
+      "imgsrc":"images/drinks/d5.jpg",
+      "dri_name":"Hi-C Orange Lavaburst"
+    }],
+
+  "dri2": [
+    {
+      "imgsrc":"images/drinks/d6.jpg",
+      "dri_name":"Barqs Root Beer"
+    },{
+      "imgsrc":"images/drinks/d7.jpg",
+      "dri_name":"Pibb Xtra"
+    },{
+      "imgsrc":"images/drinks/d8.jpg",
+      "dri_name":"Blue Raspberry Chiller"
+    },{
+      "imgsrc":"images/drinks/d9.jpg",
+      "dri_name":"Jolly Rancher"
+    },{
+      "imgsrc":"images/drinks/d10.jpg",
+      "dri_name":"Iced Tea"
+    }]
+}

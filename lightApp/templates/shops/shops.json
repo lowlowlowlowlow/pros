@@ -1,0 +1,156 @@
+{
+  "totalPages": 30,
+  "currentPage": 1,
+  "shops": [
+    {
+      "location":"Fenton",
+      "distance":"1.2km",
+      "first_add":"1871 Bowles Avenue.",
+      "sec_add":"Fenton, MO 63026",
+      "phone":"(636) 349-9988",
+      "store_h1":"Sun-Thu 6:00 AM-10:00 PM",
+      "store_h2":"Fri,Sat 6:00 AM-11:00 PM",
+      "DTH":"Sun-Sat 12:00 AM-12:00 AM",
+      "HLH":"Sun-Sat 6:00 AM-10:00 AM and 5:00 PM-10:00 PM"
+    },{
+      "location":"St Louis",
+      "distance":"1.5km",
+      "first_add":"6935 South Lindbergh Blvd.",
+      "sec_add":"St Louis, MO 63123",
+      "phone":"(314) 845-8400",
+      "store_h1":"Sun-Thu 6:00 AM-10:00 PM",
+      "store_h2":"Fri,Sat 6:00 AM-11:00 PM",
+      "DTH":"Sun-Sat 12:00 AM-12:00 AM",
+      "HLH":"Sun-Sat 6:00 AM-10:00 AM and 5:00 PM-10:00 PM"
+    },{
+      "location":"Springfield",
+      "distance":"1.9km",
+      "first_add":"2301 W. Monroe Suite C.",
+      "sec_add":"Springfield, IL 62704",
+      "phone":"(217) 718-6200",
+      "store_h1":"Sun-Thu 6:00 AM-10:00 PM",
+      "store_h2":"Fri,Sat 6:00 AM-11:00 PM",
+      "DTH":"Sun-Sat 12:00 AM-12:00 AM",
+      "HLH":"Sun-Sat 6:00 AM-9:00 PM"
+    },{
+      "location":"St Louis",
+      "distance":"2.1km",
+      "first_add":"6935 South Lindbergh Blvd.",
+      "sec_add":"St Louis, MO 63123",
+      "phone":"(314) 845-8400",
+      "store_h1":"Sun-Thu 6:00 AM-10:00 PM",
+      "store_h2":"Fri,Sat 6:00 AM-11:00 PM",
+      "DTH":"Sun-Sat 12:00 AM-12:00 AM",
+      "HLH":"Sun-Sat 6:00 AM-10:00 AM and 5:00 PM-10:00 PM"
+    },{
+      "location":"Ferguson",
+      "distance":"3.1km",
+      "first_add":"10880 West Florissant Avenue.",
+      "sec_add":"Fairview Heights, IL 62208",
+      "phone":"(314) 521-5515",
+      "store_h1":"Sun-Thu 6:00 AM-10:00 PM",
+      "store_h2":"Fri,Sat 6:00 AM-11:00 PM",
+      "DTH":"Sun-Sat 5:30 AM-9:00 PM",
+      "HLH":"Sun-Sat 5:30 AM-9:00 PM"
+    },{
+      "location":"Fairview Heights",
+      "distance":"4.0km",
+      "first_add":"5812 North Illinois Street.",
+      "sec_add":"Fairview Heights, IL 62208",
+      "phone":"(618) 222-1075",
+      "store_h1":"Sun-Thu 6:00 AM-10:00 PM",
+      "store_h2":"Fri,Sat 6:00 AM-11:00 PM",
+      "DTH":"Sun-Sat 12:00 AM-12:00 AM",
+      "HLH":"Sun-Sat 5:00 AM-10:00 PM"
+    },{
+      "location":"Springfield",
+      "distance":"4.2km",
+      "first_add":"2301 W. Monroe Suite C.",
+      "sec_add":"Springfield, IL 62704",
+      "phone":"(217) 718-6200",
+      "store_h1":"Sun-Thu 6:00 AM-10:00 PM",
+      "store_h2":"Fri,Sat 6:00 AM-11:00 PM",
+      "DTH":"Sun-Sat 12:00 AM-12:00 AM",
+      "HLH":"Sun-Sat 6:00 AM-9:00 PM"
+    },{
+      "location":"Ferguson",
+      "distance":"4.8km",
+      "first_add":"10880 West Florissant Avenue.",
+      "sec_add":"Fairview Heights, IL 62208",
+      "phone":"(314) 521-5515",
+      "store_h1":"Sun-Thu 6:00 AM-10:00 PM",
+      "store_h2":"Fri,Sat 6:00 AM-11:00 PM",
+      "DTH":"Sun-Sat 5:30 AM-9:00 PM",
+      "HLH":"Sun-Sat 5:30 AM-9:00 PM"
+    },{
+      "location":"Fenton",
+      "distance":"5.2km",
+      "first_add":"1871 Bowles Avenue.",
+      "sec_add":"Fenton, MO 63026",
+      "phone":"(636) 349-9988",
+      "store_h1":"Sun-Thu 6:00 AM-10:00 PM",
+      "store_h2":"Fri,Sat 6:00 AM-11:00 PM",
+      "DTH":"Sun-Sat 12:00 AM-12:00 AM",
+      "HLH":"Sun-Sat 6:00 AM-10:00 AM and 5:00 PM-10:00 PM"
+    },{
+      "location":"Ferguson",
+      "distance":"5.7km",
+      "first_add":"10880 West Florissant Avenue.",
+      "sec_add":"Fairview Heights, IL 62208",
+      "phone":"(314) 521-5515",
+      "store_h1":"Sun-Thu 6:00 AM-10:00 PM",
+      "store_h2":"Fri,Sat 6:00 AM-11:00 PM",
+      "DTH":"Sun-Sat 5:30 AM-9:00 PM",
+      "HLH":"Sun-Sat 5:30 AM-9:00 PM"
+    },{
+      "location":"St Louis",
+      "distance":"6.8km",
+      "first_add":"6935 South Lindbergh Blvd.",
+      "sec_add":"St Louis, MO 63123",
+      "phone":"(314) 845-8400",
+      "store_h1":"Sun-Thu 6:00 AM-10:00 PM",
+      "store_h2":"Fri,Sat 6:00 AM-11:00 PM",
+      "DTH":"Sun-Sat 12:00 AM-12:00 AM",
+      "HLH":"Sun-Sat 6:00 AM-10:00 AM and 5:00 PM-10:00 PM"
+    },{
+      "location":"Ferguson",
+      "distance":"7.2km",
+      "first_add":"10880 West Florissant Avenue.",
+      "sec_add":"Fairview Heights, IL 62208",
+      "phone":"(314) 521-5515",
+      "store_h1":"Sun-Thu 6:00 AM-10:00 PM",
+      "store_h2":"Fri,Sat 6:00 AM-11:00 PM",
+      "DTH":"Sun-Sat 5:30 AM-9:00 PM",
+      "HLH":"Sun-Sat 5:30 AM-9:00 PM"
+    },{
+      "location":"Fairview Heights",
+      "distance":"9.0km",
+      "first_add":"5812 North Illinois Street.",
+      "sec_add":"Fairview Heights, IL 62208",
+      "phone":"(618) 222-1075",
+      "store_h1":"Sun-Thu 6:00 AM-10:00 PM",
+      "store_h2":"Fri,Sat 6:00 AM-11:00 PM",
+      "DTH":"Sun-Sat 12:00 AM-12:00 AM",
+      "HLH":"Sun-Sat 5:00 AM-10:00 PM"
+    },{
+      "location":"Ferguson",
+      "distance":"9.4km",
+      "first_add":"10880 West Florissant Avenue.",
+      "sec_add":"Fairview Heights, IL 62208",
+      "phone":"(314) 521-5515",
+      "store_h1":"Sun-Thu 6:00 AM-10:00 PM",
+      "store_h2":"Fri,Sat 6:00 AM-11:00 PM",
+      "DTH":"Sun-Sat 5:30 AM-9:00 PM",
+      "HLH":"Sun-Sat 5:30 AM-9:00 PM"
+    },{
+      "location":"Springfield",
+      "distance":"10.1km",
+      "first_add":"2301 W. Monroe Suite C.",
+      "sec_add":"Springfield, IL 62704",
+      "phone":"(217) 718-6200",
+      "store_h1":"Sun-Thu 6:00 AM-10:00 PM",
+      "store_h2":"Fri,Sat 6:00 AM-11:00 PM",
+      "DTH":"Sun-Sat 12:00 AM-12:00 AM",
+      "HLH":"Sun-Sat 6:00 AM-9:00 PM"
+    }]
+}

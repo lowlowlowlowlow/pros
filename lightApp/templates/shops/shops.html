@@ -1,0 +1,40 @@
+<ion-view view-title="SHOPS NEARBY">
+    <ion-content>
+        <ul id="locates">
+            <li ng-repeat="aShop in shops">
+                <div class="lefticon"><img src="images/locate/HotSign_2_On.png"></div>
+                <div class="rightpart">
+                    <div class="tit">
+                        <span class="shopname">{{aShop.location}}</span>
+                        <span class="distance">{{aShop.distance}}</span>
+                    </div>
+                    <p class="add">{{aShop.first_add}}</p>
+                    <p class="add">{{aShop.sec_add}}</p>
+                    <p class="add">Phone:{{aShop.phone}}</p>
+                    <p class="desc">Independently owned and operated franchise.</p>
+                    <div class="hours">
+                        <div class="h_left"><img src="images/locate/time.png"></div>
+                        <div class="h_right">
+                            <div class="store_h">
+                                <p class="h_tit">Store Hours:</p>
+                                <p class="store_time">{{aShop.store_h1}}</p>
+                                <p class="store_time">{{aShop.store_h2}}</p>
+                            </div>
+                            <div class="store_h">
+                                <p class="h_tit">Store Hours:</p>
+                                <p class="store_time">{{aShop.DTH}}</p>
+                            </div>
+                            <div class="store_h">
+                                <p class="h_tit">Store Hours:</p>
+                                <p class="store_time">{{aShop.HLH}}</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+
+</ion-content>
+</ion-view>

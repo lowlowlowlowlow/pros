@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<link href="css/index.css" rel="stylesheet" type="text/css">
+    <script src="js/angular.js"></script>
+    <script src="js/app.js"></script>
+
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+<div id="main">
+    <div id="main_inner">
+        <img class="dec" src="images/circle-small-red.png">
+        <img class="dec" src="images/half-circle-right-brown.png">
+        <img class="dec" src="images/mawa.png">
+        <img class="dec" src="images/swiggle-angle-left-green.png">
+        <img class="dec" src="images/swiggle-angle-left-mustard.png">
+
+        <p id="tit">What do you think of the movie "Kin Medal Otoko"?</p>
+        <div class="sign">
+            <div class="part1">
+                <a href="#" id="btn" ng-click="toggleMenu()">FAST COMMENTS</a>
+                    <div class="covers">
+                        <a href="#" id="mye" ng-click="minus()"><</a>
+                        <a href="#" ng-repeat="p in data | navFilter:pageSize"
+                           ng-click="page(p)" ng-class="p==pageNum?'bg':''">{{p}}</a>
+                        <a href="#" id="ushilo" ng-click="plus()">></a>
+                    </div>
+
+            </div>
+            <div class="part2" ng-show="menuState.show">
+                <form name="newComment" id="news" novalidate>
+                    <textarea name="newContent" id="cons" placeholder="What's your comment?" ng-model="mes" required></textarea>
+                    <div ng-show="newComment.newContent.$dirty && newComment.newContent.$invalid">
+                        <!--如果是违反了required这个要求-->
+                        <span ng-show="newComment.newContent.$error.required" class="error">Please leave your comment!</span>
+                    </div>
+                    <div class="like_log">
+                            <input type="text" name="enterit" id="name" placeholder="Your name" ng-model="username" required>
+                            <div ng-show="newComment.enterit.$dirty && newComment.enterit.$invalid">
+                                <!--如果是违反了required这个要求-->
+                                <span ng-show="newComment.enterit.$error.required" class="error2">Please enter your name!</span>
+                            </div>
+
+                        <a id="sends" href="#" ng-click="add()">SEND</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="counts">
+            <div>PEOPLE INVOLVED:<span>{{ comments }}</span></div>
+            <div>PEOPLE LIKED:<span>{{ likes }}</span></div>
+        </div>
+        <ul class="msgs">
+            <li class="aCon" ng-repeat="person in data | orderBy: '-dates' | pageFilter:pageNum:pageSize ">
+                <div class="pic_name_date">
+                    <div class="head"><img src="{{ person.imgsrc }}" /></div>
+                    <p class="user">{{ person.name }}</p>
+                    <p class="date">{{ person.dates | date:"yyyy-MM-dd"}}</p>
+                </div>
+                <p class="content">{{ person.aCont}}</p>
+                <ul class="clicks">
+                    <li><a href="#" class="clicked" ng-click="up(person)">LIKE [{{ person.likenum}}]</a></li>
+                    <li><a href="#">REPLY</a></li>
+                    <li><a href="#">FAVOR</a></li>
+                    <li><a href="#">SHARE</a></li>
+                    <li><a href="#">COPY</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="pages">
+            <div class="covers">
+                <a href="#" id="mye" ng-click="minus()"><</a>
+                <a href="#" ng-repeat="p in data | navFilter:pageSize"
+                   ng-click="page(p)" ng-class="p==pageNum?'bg':''">{{p}}</a>
+                <a href="#" id="ushilo" ng-click="plus()">></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

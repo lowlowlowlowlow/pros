@@ -1,0 +1,346 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{
+    margin:0;
+    border:0;
+    padding:0;
+    font-family:"微软雅黑";
+    font-weight:bold;
+}
+
+ul{
+    list-style:none;
+}
+
+a{
+    text-decoration:none;
+}
+
+img{
+    display:block;
+    border:0;
+    padding:0;
+    margin:0;
+}
+
+#main{
+    padding:30px 0;
+    background-image: url("../images/background2.jpg");
+    background-repeat: no-repeat;
+    background-size:100%;
+}
+
+#main_inner{
+    margin:0 auto;
+    width:960px;
+    padding:20px;
+    border:3px dashed #104db7;
+    background-image:url("../images/bg.jpg");
+    position:relative;
+}
+
+.dec{
+    position:absolute;
+}
+
+.dec:first-child{
+    left:0;
+    top:255px;
+    animation:shake 1s infinite;
+}
+
+.dec:nth-child(2){
+    right:-39px;
+    top:180px;
+    animation:shake2 1s infinite;
+}
+
+.dec:nth-child(3){
+     right:200px;
+     top:440px;
+    animation:shake3 1s infinite;
+ }
+
+.dec:nth-child(4){
+    left:200px;
+    top:650px;
+    animation:shake 1s infinite;
+}
+
+.dec:nth-child(5){
+    right:200px;
+    top:850px;
+    animation:shake2 1s infinite;
+}
+
+#tit{
+    width:960px;
+    height:auto;
+    line-height:45px;
+    font-size:30px;
+    color:white;
+    text-align:center;
+    background-color: #e35ead;
+}
+
+.sign{
+    height:auto;
+    width:100%;
+}
+
+.part1,.part2{
+    padding:5px;
+    width:99%;
+}
+
+.part1{
+    height:30px;
+}
+
+#btn{
+    float:left;
+    display:block;
+    width:auto;
+    height:30px;
+    background-color:#104db7;
+    color:white;
+    text-align:center;
+    line-height:30px;
+    padding:0 5px;
+}
+
+.part2{
+    height:auto;
+}
+
+#counts{
+    padding-left:6px;
+    overflow:hidden;
+    margin-top:10px;
+}
+
+#counts>div{
+    float:left;
+    margin-right:30px;
+    height:30px;
+    line-height:30px;
+}
+
+#counts span{
+    background-color:#e35ead;
+    padding:5px;
+    color:white;
+    margin-left:5px;
+    test-align:center;
+}
+
+.bg{
+    background-color:#104db7;
+    color:white !important;
+}
+
+#cons{
+    width:98%;
+    height:140px;
+    border:3px dashed #104db7;
+    margin-bottom:5px;
+    font-size:16px;
+    color:#333;
+    padding:5px;
+}
+
+.like_log{
+    width:100%;
+    height:35px;
+}
+
+#name{
+    width:200px;
+    height:30px;
+    padding:0 5px;
+    border:3px dashed #104db7;
+    float:left;
+    font-size:15px;
+    display:block;
+}
+
+#spec{
+    overflow:hidden;
+    width:300px;
+}
+
+#sends{
+    float:right;
+    display:block;
+    background-color:#ffe42d;
+    width:100px;
+    height:30px;
+    line-height:30px;
+    text-align:center;
+    color:#333;
+}
+
+.msgs{
+    width:99%;
+    height:852px;
+    padding:5px;
+    overflow:hidden;
+}
+
+.aCon{
+    padding:10px;
+    width:98%;
+    height:120px;
+    border-top:3px dashed #ffe42d;;
+}
+
+.pic_name_date{
+    overflow:hidden;
+}
+
+.head{
+    width:40px;
+    height:40px;
+    float:left;
+    margin-right:10px;
+}
+
+.head img{
+    width:40px;
+    height:40px;
+}
+
+.user,.date{
+    width:auto;
+    height:40px;
+    line-height:40px;
+    text-align:center;
+    font-size:15px;
+}
+
+.user{
+    float:left;
+    color:#e35ead;
+}
+
+.date{
+    float:right;
+    color:#104db7;
+}
+
+.content{
+    margin-top:10px;
+    width:100%;
+    min-height:50px;
+    line-height:25px;
+    font-size:17px;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:2;
+}
+
+.clicks{
+    float:right;
+    width:auto;
+}
+
+.clicks li{
+    float:left;
+}
+
+.clicks a{
+    display:block;
+    margin-right:5px;
+    font-size:13px;
+    color:#333;
+}
+
+.clicks .clicked{
+    color:tomato;
+}
+
+.pages{
+    overflow:hidden;
+}
+
+.covers{
+    float:right;
+    height:15px;
+    padding:15px;
+
+
+}
+
+.covers a{
+    display:block;
+    float:left;
+    width:15px;
+    height:15px;
+    font-size:15px;
+    line-height:15px;
+    text-align:center;
+    color:#e35ead;
+}
+
+@keyframes shake{
+    0%{
+        transform:translateX(0%);
+    }
+
+    50%{
+        transform:translateX(-10%);
+    }
+
+    100%{
+        transform:translateX(0%);
+    }
+}
+
+@keyframes shake2{
+    0%{
+        transform:translateX(0%);
+    }
+
+    50%{
+        transform:translateX(10%);
+    }
+
+    100%{
+        transform:translateX(0%);
+    }
+}
+
+@keyframes shake3{
+    0%{
+        transform:translateY(0%);
+    }
+
+    50%{
+        transform:translateY(10%);
+    }
+
+    100%{
+        transform:translateY(0%);
+    }
+}
+
+.error,.error2{
+    line-height:30px;
+    height:30px;
+    width:100%;
+    color:tomato;
+    display:block;
+}
+
+.error2{
+    float:left;
+}
+
+#news{
+    overflow:hidden;
+    width:99%;
+    height:auto;
+}

@@ -1,0 +1,33 @@
+<ion-view view-title="LOG IN">
+    <ion-content>
+        <div id="part1" ng-show="!menuState.show">
+            <div class="donuts"><img src="images/locate/doughnut.png"></div>
+            <p class="lg_des">LOGIN TO YOUR ACCOUNT</p>
+            <form name="newComment" novalidate>
+                <input name="newContent" class="info" placeholder="EMAIL OR YOUR CARD NUMBER" ng-model="input.username" required>
+                <div ng-show="newComment.newContent.$dirty && newComment.newContent.$invalid">
+                    <span ng-show="newComment.newContent.$error.required" class="error">Please enter your name!</span>
+                </div>
+
+                <input class="info" placeholder="PASSWORD" ng-model="input2.pwd" name="enterit" required>
+                <div ng-show="newComment.enterit.$dirty && newComment.enterit.$invalid">
+                    <span ng-show="newComment.enterit.$error.required" class="error">Please enter your password!</span>
+                </div>
+
+                <a id="tabs" ng-click="logs()">LOG IN</a>
+
+            </form>
+            <a id="news" ui-sref="clicks.regi">NEWBIE?CREATE YOUR ACCOUNT HERE!</a>
+
+        </div>
+
+        <div id="part2" ng-show="menuState.show">
+            <div class="donuts"><img src="images/locate/doughnut.png"></div>
+            <p class="lg_des">{{data[0].name}}</p>
+            <a ui-sref="clicks.rewards" class="merits">YOUR OFFERS : {{data[0].offers}}</a>
+            <a ui-sref="clicks.offers" class="merits">YOUR REWARDS : {{data[0].rewards}}</a>
+            <a ui-sref="clicks.goods" class="merits">YOUR POINTS : {{data[0].points}}</a>
+            <p class="lg_des">CARD NUMBER: {{data[0].c_num}}</p>
+        </div>
+    </ion-content>
+</ion-view>

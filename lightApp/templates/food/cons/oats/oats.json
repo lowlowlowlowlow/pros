@@ -1,0 +1,36 @@
+{
+  "totalPages": 30,
+  "currentPage": 1,
+  "oat1": [
+    {
+      "imgsrc":"images/oats/o1.jpg",
+      "oat_name":"Cinnamon Raisin Bagel"
+    },{
+      "imgsrc":"images/oats/o2.jpg",
+      "oat_name":"Plain Bagel"
+    },{
+      "imgsrc":"images/oats/o3.jpg",
+      "oat_name":"Blueberry Bagel"
+    },{
+      "imgsrc":"images/oats/o4.jpg",
+      "oat_name":"Everything Bagel"
+    },{
+      "imgsrc":"images/oats/o5.jpg",
+      "oat_name":"Whole Grain Bagel"
+    }],
+
+  "oat2": [
+    {
+      "imgsrc":"images/oats/o6.jpg",
+      "oat_name":"Onion Bagel"
+    },{
+      "imgsrc":"images/oats/o7.jpg",
+      "oat_name":"Oatmeal"
+    },{
+      "imgsrc":"images/oats/o8.jpg",
+      "oat_name":"Asiago Cheese Bagel"
+    },{
+      "imgsrc":"images/oats/o9.jpg",
+      "oat_name":"Apple Cinnamon Medley"
+    }]
+}
