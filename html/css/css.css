@@ -374,7 +374,7 @@ a{
 }
 
 .skills_circle li:first-child{
-	top:75px;
+	top:115px;
 	right:-17px;
 	width:55%;
 	height:55%;
@@ -423,7 +423,7 @@ a{
 }
 
 .skills_circle li:nth-child(8){
-	top:162px;
+	top:206px;
 	left:304px;
 	width:15%;
 	height:15%;
