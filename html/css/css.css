@@ -374,57 +374,57 @@ a{
 }
 
 .skills_circle li:first-child{
-	top:115px;
-	right:-17px;
+	top:62px;
+	right:-31px;
 	width:55%;
 	height:55%;
 }
 
 .skills_circle li:nth-child(2){
-	top:345px;
-	right:60px;
+	top:296px;
+	right:54px;
 	width:40%;
 	height:40%;
 }
 
 .skills_circle li:nth-child(3){
-	 bottom:170px;
-	 right:160px;
+	 bottom:150px;
+	 right:145px;
 	width:25%;
 	height:25%;
  }
 
 .skills_circle li:nth-child(4){
-	left:100px;
-	bottom:120px;
+	left:109px;
+	bottom:102px;
 	width:32%;
 	height:32%;
 }
 
 .skills_circle li:nth-child(5){
-	top:339px;
+	top:301px;
 	left:150px;
 	width:25%;
 	height:25%;
 }
 
 .skills_circle li:nth-child(6){
-	top:149px;
-	left:31px;
+	top:109px;
+	left:29px;
 	width:45%;
 	height:45%;
 }
 
 .skills_circle li:nth-child(7){
-	top:130px;
+	top:89px;
 	left:154px;
 	width:25%;
 	height:25%;
 }
 
 .skills_circle li:nth-child(8){
-	top:206px;
-	left:304px;
+	top:162px;
+	left:305px;
 	width:15%;
 	height:15%;
 }
